@@ -13,4 +13,13 @@ def reverse(lst):
     return
 
 reverse(s)
-    
+
+# Squares of a sorted array
+class Solution(object):
+    def sortedSquares(self, nums):
+        index = 0
+        while index < len(nums):
+            nums[index] = nums[index]*nums[index]
+            index += 1
+        nums.sort()
+        return nums
