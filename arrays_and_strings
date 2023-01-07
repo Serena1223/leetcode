@@ -1,0 +1,16 @@
+# reverse a string. Leetcode ez
+
+# s = ["H","a","n","n","a","h"]
+s = ["B", "e", "n"]
+out = []
+
+def reverse(lst):
+    count = 1
+    while count <= len(s):
+        out.append(s[-1 * count])
+        count = count + 1
+    print(out)
+    return
+
+reverse(s)
+    
