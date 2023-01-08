@@ -1,0 +1,17 @@
+# first do it the brute force way
+def pair_sum(numbers, target_sum):
+  for i in range(len(numbers)):
+    for j in range(len(numbers)):
+      if i != j and numbers[i] + numbers[j] == target_sum:
+        return (i, j)
+        
+# do it more efficiently with hashmap (dict)
+def pair_sum(numbers, target_sum):
+  prev = {}
+  
+  for index, num in enumerate(numbers):
+    complement = target_sum - num
+    if complement in prev:
+      return (index, prev[complement])
+    prev[num] = index
+  
