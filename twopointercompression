@@ -1,0 +1,61 @@
+# initial brainstorming
+def compress(s):
+  result = ""
+  # establish the two pointers
+  i = 0
+  j = 0
+  
+  while j < len(s):
+    if s[j] == s[i]:
+      j += 1
+    else: 
+      # s[i:j] # count this
+      result += s[i] * len(s[i:j])
+
+
+# final working code
+def compress(s):
+  result = ""
+  # establish the two pointers
+  i = 0
+  j = 0
+  
+  while j < len(s):
+    if s[j] == s[i]:
+      j += 1
+    else: 
+      # s[i:j] # count this
+      if (j-i == 1):
+          result += s[i]
+      else:   
+        result = result + str(len(s[i:j])) + s[i]
+      # progress pointers
+      i = j
+  result = result + str(j-i) + s[i]
+  return result
+  
+compress('nnneeeeeeeeeeeezz')
+compress('ppoeeeee')
+
+# more efficient code using array
+def compress(s):
+  result = []
+  s += "!"
+  # establish the two pointers
+  i = 0
+  j = 0
+  
+  while j < len(s):
+    if s[j] == s[i]:
+      j += 1
+    else: 
+      # s[i:j] # count this
+      if (j-i == 1):
+          result.append(s[i])
+      else:   
+        result.append(str(len(s[i:j]))) 
+        result.append(s[i])
+      # progress pointers
+      i = j
+  return "".join(result)
+  
