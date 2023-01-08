@@ -1,0 +1,14 @@
+def anagrams(s1, s2):
+  # this is the main function
+  return (create_dict(s1) == create_dict(s2))
+  
+  
+# this is a helper function
+def create_dict(s):
+  count = {}
+  for char in s:
+    if char not in count:
+      count[char] = 0
+    else: #char is in count
+      count[char] = count[char] + 1
+  return count
