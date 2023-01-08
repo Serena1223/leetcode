@@ -1,0 +1,29 @@
+#Initial approach: 
+def uncompress(s):
+  final = ""
+  for ele in range(s):
+    if int(s[ele]).isnumeric():
+      final = final + s[ele+1]
+  print (final)
+uncompress("2c3a1t")
+
+# new two pointer approach:
+def uncompress(s):
+  # my pointers
+  result = ""
+  numbers = "0123456789"
+  i = 0
+  j = 0
+  
+  while j < len(s):
+    if s[j] in numbers:
+      j += 1
+    else:
+      # do the split thing
+      # s[i:j] # this is the number
+      result += s[j] * int(s[i:j])
+        
+      #progess pointers
+      j = j + 1
+      i = j #start of new sequence
+  return result
