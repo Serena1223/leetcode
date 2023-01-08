@@ -1,0 +1,19 @@
+def most_frequent_char(s):
+  dict = {}
+  #same thing
+  for letter in s:
+    if letter not in dict:
+      dict[letter] = 0
+    dict[letter] += 1
+    
+  # to return the thing
+  # loop thru to keep the max (value)
+  #find the key for the max return the key
+  best = None
+  
+  for letter in s:
+    # put best is None first because if you check the second cond first, it'll break cuz best is None
+    if best is None or dict[letter] > dict[best]:
+      best = letter
+  return best
+  
