@@ -15,3 +15,26 @@ def pair_sum(numbers, target_sum):
       return (index, prev[complement])
     prev[num] = index
   
+# re write
+# first do it the brute force way with two pointers
+# def pair_sum(numbers, target_sum):
+#   for i in range(len(numbers)):
+#     for j in range(len(numbers)):
+#       if i != j and numbers[i] + numbers[j] == target_sum:
+#         return (i, j)
+  
+# do it more efficiently
+# step 1: declare an empty dict
+# step 2: loop through num in numbers. check if 
+# the complement is in dict. If so, print out index
+# if not, add number and index to dict
+def pair_sum(numbers, target_sum):
+  dict = {}
+  
+  for index, num in enumerate(numbers):
+    complement = target_sum - num
+    
+    if complement in dict:
+      return (index, dict[complement])
+    else:
+      dict[num] = index
