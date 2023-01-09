@@ -1,0 +1,19 @@
+def five_sort(nums):
+  i = 0
+  j = len(nums) - 1
+  
+  while i < j:
+    if nums[i] == 5 and nums[j] != 5:
+      rmbr_j = nums[j]
+      nums[j] = 5
+      nums[i] = rmbr_j
+      i += 1
+      j -= 1
+    elif nums[i] == 5 and nums[j] == 5:
+      j -= 1
+    elif nums[i] != 5:
+      i += 1
+    
+  return nums
+      
+  
