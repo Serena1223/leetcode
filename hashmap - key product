@@ -10,3 +10,10 @@ def pair_product(numbers, target_product):
     
     else:
       dict[num] = index
+      
+# brute force way just in case they ask for it
+def pair_product(numbers, target_product):
+  for i in range(len(numbers)):
+    for j in range(len(numbers)):
+      if i != j and numbers[i]*numbers[j] == target_product:
+        return(i, j)
