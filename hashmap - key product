@@ -1,0 +1,12 @@
+# first try and W
+def pair_product(numbers, target_product):
+  dict = {}
+  
+  for index, num in enumerate(numbers):
+    arg = target_product / num
+    
+    if arg in dict:
+      return (dict[arg], index)
+    
+    else:
+      dict[num] = index
