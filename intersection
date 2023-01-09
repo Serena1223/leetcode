@@ -1,0 +1,28 @@
+# original approach O(n^2)
+def intersection(a, b): #time comp O(n^2)
+  final = []
+  if a == b:
+    return a
+  # time comp O(n)
+  
+  # time comp O(n^2)
+  for num in a:
+    if num in b:
+      final.append(num)
+      
+  return final
+  
+ # using set lookup is O(1)
+ def intersection(a, b): #O(n)
+  final = []
+  item_set = set()
+  
+  # O(n)
+  for ele in a:
+    item_set.add(ele) #O(1)
+  
+  # O(n)
+  for ele in b:
+    if ele in item_set:
+      final.append(ele)
+  return final
