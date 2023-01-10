@@ -1,0 +1,31 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.next = None
+
+def longest_streak(head):
+  if head == None:
+    return 0
+  
+  count = 1
+  max = 0
+  current = head
+  pointer = head.next
+  
+  while pointer is not None:
+    if pointer.val == current.val:
+      count += 1
+      pointer = pointer.next
+    
+    else:
+        if count > max:
+          max = count
+        count = 1
+        current = pointer
+        pointer = pointer.next
+  
+  if count > max:
+      max = count  
+      
+  return max
+      
