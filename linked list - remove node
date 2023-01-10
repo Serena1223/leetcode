@@ -3,6 +3,7 @@
 #     self.val = val
 #     self.next = None
 
+# iterative approach
 def remove_node(head, target_val):
   prev = head
   current = head.next
@@ -11,6 +12,7 @@ def remove_node(head, target_val):
   if target_val == head.val:
     return head.next
   
+  # otherwise, just keep going
   while current is not None:
     if current.val == target_val:
       prev.next = current.next
@@ -20,6 +22,21 @@ def remove_node(head, target_val):
       prev = prev.next
   return head
     
+# recursive
+def remove_node(head, target_val):
+  # base cases
+  # empty linked list
+  if head == None:
+    return None
+  
+  # the remaining parts after found node, skip over it
+  if target_val == head.val:
+    return head.next
+  
+  head.next = remove_node(head.next, target_val)
+  return head
+  
+  
   
       
       
