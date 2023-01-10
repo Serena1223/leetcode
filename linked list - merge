@@ -1,0 +1,45 @@
+# quite proud of this one actually. Did it right off the bat without any help
+class Node:
+  def __init__(self, val):
+    self.val = val
+    self.next = None
+
+def merge_lists(head_1, head_2):
+  # get the tail
+  if head_1.val <= head_2.val:
+    # start with head_1 as tail
+    tail = head_1
+    current1 = head_1.next
+    current2 = head_2
+  else:
+    tail = head_2
+    current2 = head_2.next
+    current1 = head_1
+    
+  while current1 is not None and current2 is not None:
+    if current1.val < current2.val: 
+      tail.next = current1
+      current1 = current1.next
+      tail = tail.next
+    else:
+      tail.next = current2
+      current2 = current2.next
+      tail = tail.next
+    
+  if current1 is not None:
+    tail.next = current1
+  if current2 is not None:
+    tail.next = current2
+  
+  if head_1.val <= head_2.val:
+    return head_1
+  else:
+    return head_2
+    
+    
+  
+  
+  
+  
+  
+  
