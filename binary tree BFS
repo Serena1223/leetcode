@@ -1,0 +1,21 @@
+# iterative code
+def breadth_first_values(root):
+  if root is None:
+    return []
+  
+  results = []
+  queue = [root]
+  
+  while queue:
+    cur = queue.pop(0)
+    results.append(cur.val)
+    
+    if cur.left is not None:
+      queue.append(cur.left)    
+      
+    if cur.right is not None:
+      queue.append(cur.right)  
+    
+      
+    
+  return results
