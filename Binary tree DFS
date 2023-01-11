@@ -1,0 +1,34 @@
+
+# recursive solution
+def depth_first_values(root):
+  # base case, root is none
+  if root is None:
+    return []
+  
+  left_values = depth_first_values(root.left)
+  right_values = depth_first_values(root.right)
+  
+  # note: this line to return is called every time depth_first_values is
+  # called, not just in the original call. 
+  return [root.val, *left_values, *right_values]
+  
+  
+# iterative solution
+def depth_first_values(root):
+  stack = [root]
+  final = []
+
+  if root is None:
+    return []
+  
+  while stack: 
+    cur = stack.pop()
+    final.append(cur.val)
+    
+    if cur.right is not None:
+      stack.append(cur.right)   
+      
+    if cur.left is not None:
+      stack.append(cur.left)
+    
+  return final
