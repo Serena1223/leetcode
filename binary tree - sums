@@ -1,0 +1,9 @@
+# recursive
+def tree_sum(root):
+  if root is None:
+    return 0
+  
+  all_left = tree_sum(root.left)
+  all_right = tree_sum(root.right)
+  
+  return (root.val + all_left + all_right)
