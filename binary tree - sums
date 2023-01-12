@@ -7,3 +7,23 @@ def tree_sum(root):
   all_right = tree_sum(root.right)
   
   return (root.val + all_left + all_right)
+
+#iterative
+def tree_sum(root):
+  if root is None:
+    return 0
+  
+  stack = [root]
+  sum = 0
+  
+  while stack:
+    cur = stack.pop()
+    sum += cur.val
+  
+    if cur.left:
+      stack.append(cur.left)
+  
+    if cur.right:
+      stack.append(cur.right)
+  
+  return sum
