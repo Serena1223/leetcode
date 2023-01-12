@@ -1,0 +1,12 @@
+def max_path_sum(root): 
+  if root is None:
+    return float("-inf")
+  
+  # base case: node has no children left or right
+  if root.left is None and root.right is None:
+    return root.val
+  
+  left_max = max_path_sum(root.left)
+  right_max = max_path_sum(root.right)
+  
+  return (root.val + max(left_max, right_max))
