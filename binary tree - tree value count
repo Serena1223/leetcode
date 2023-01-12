@@ -1,0 +1,36 @@
+def tree_value_count(root, target):
+  if root is None:
+    return 0
+  
+  total = 0
+  stack = [root]
+  
+  while stack:
+    cur = stack.pop()
+    if cur.val == target:
+      total += 1
+    
+    if cur.left is not None:
+      stack.append(cur.left)
+
+    if cur.right is not None:
+      stack.append(cur.right)
+  return total
+  
+# recursive
+def tree_value_count(root, target):
+  # base case:
+  if root is None:
+    return 0
+  
+  if root.val == target:
+    match = 1
+  else:
+    match = 0
+  
+  left_total = tree_value_count(root.left, target)
+  
+  right_total = tree_value_count(root.right, target)
+  
+  return match + left_total + right_total
+  
