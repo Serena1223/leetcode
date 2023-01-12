@@ -1,0 +1,27 @@
+# iterative code heheee
+def tree_min_value(root):
+  min = root.val
+  stack = [root]
+  
+  while stack:
+    cur = stack.pop()
+    if cur.val < min:
+      min = cur.val
+      
+    if cur.left:
+      stack.append(cur.left)
+      
+    if cur.right:
+      stack.append(cur.right)
+  return min
+  
+# recursive definition
+def tree_min_value(root):
+  if root is None:
+    return float("inf")
+  
+  left_min = tree_min_value(root.left)
+  right_min = tree_min_value(root.right)
+  
+  return min(root.val, left_min, right_min)
+  
