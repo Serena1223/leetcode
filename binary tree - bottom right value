@@ -1,0 +1,36 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+# ideas:
+# breadth first traversal 
+# last node is cur.val. just return that
+def bottom_right_value(root):
+  if root is None:
+    return None
+  
+  queue = [root]
+  
+  while queue:
+    cur = queue.pop(0)
+    
+    if cur.left:
+      queue.append(cur.left)
+      
+    if cur.right:
+      queue.append(cur.right)
+      
+  return cur.val
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
