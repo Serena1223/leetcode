@@ -1,0 +1,32 @@
+# recursive moment
+def tree_includes(root, target):
+  if root is None:
+    return False
+  
+  if root.val == target:
+    return True
+  
+  # how do you combine the output
+  return tree_includes(root.left, target) or tree_includes(root.right, target) 
+         
+# iterative moment XD
+# can traverse and check along the way 
+def tree_includes(root, target):
+  if root is None:
+    return False
+  
+  stack = [root]
+  
+  while stack:
+    cur = stack.pop()
+    if cur.val == target:
+      return True
+    
+    if cur.left:
+      stack.append(cur.left)
+      
+    if cur.right:
+      stack.append(cur.right)
+  return False
+      
+  
