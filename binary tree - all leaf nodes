@@ -1,0 +1,43 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+def leaf_list(root):
+  # guard against empty tree
+  if root is None:
+    return []
+  
+  # final return list
+  final = []
+  
+  # start a stack
+  stack = [root]
+  
+  while stack:
+    cur = stack.pop()
+    
+    # put in the children
+    if cur.right:
+      stack.append(cur.right)
+    
+    if cur.left:
+      stack.append(cur.left)
+  
+      # finding leaf nodes
+    if cur.left is None and cur.right is None:
+      final.append(cur.val)
+    
+  return final
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    
