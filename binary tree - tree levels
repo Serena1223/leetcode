@@ -4,39 +4,49 @@
 #     self.left = None
 #     self.right = None
 
-# ideas:
-# just breadth traversal
 def tree_levels(root):
-  
-  # tree can be none. So guard against that
+  # if tree is empty
   if root is None:
     return []
   
-  # root and level (tuple)
+  # create total variable
   total = []
+  # total = [
+  # [a]
+  # ] <- len is 1
+  
+  # doesn't matter if you use stack or queue
+  # put a tuple in with (node, level)
   stack = [(root, 0)]
- 
-  # add it to the dictionary total based on their 
-  # corresponding levels
+  
   while stack:
+    # get cur from poppig stack
     node, level = stack.pop()
     
+    # children time! put the children in stack
+    # if child exists, put child in with level += 1
+    if node.right is not None:
+      stack.append((node.right, level + 1))
     
+    if node.left is not None:
+      stack.append((node.left, level + 1))
+    
+    
+    # check if there's already a level
     if len(total) == level:
       total.append([node.val])
     
-    else:
+    # if there's not already a level,
+    # create new level
+    else: # len(total) < level:
       total[level].append(node.val)
     
-    if node.right is not None:
-      stack.append((node.right, level+1))
-      
-    if node.left is not None:
-      stack.append((node.left, level+1))
-
   return total
     
-   
-      
   
-    
+  
+  
+  
+  
+  
+  
