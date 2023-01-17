@@ -1,0 +1,42 @@
+# class Node:
+#   def __init__(self, val):
+#     self.val = val
+#     self.left = None
+#     self.right = None
+
+# ideas:
+# just breadth traversal
+def tree_levels(root):
+  
+  # tree can be none. So guard against that
+  if root is None:
+    return []
+  
+  # root and level (tuple)
+  total = []
+  stack = [(root, 0)]
+ 
+  # add it to the dictionary total based on their 
+  # corresponding levels
+  while stack:
+    node, level = stack.pop()
+    
+    
+    if len(total) == level:
+      total.append([node.val])
+    
+    else:
+      total[level].append(node.val)
+    
+    if node.right is not None:
+      stack.append((node.right, level+1))
+      
+    if node.left is not None:
+      stack.append((node.left, level+1))
+
+  return total
+    
+   
+      
+  
+    
