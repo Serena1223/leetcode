@@ -1,0 +1,22 @@
+class Solution(object):
+    def isPalindrome(self, s):
+        # remove all non-alpha numerics
+
+        alnum_only = []
+
+        for ele in s:
+            if ele.isalnum():
+                if ele.isalpha():
+                    alnum_only.append(ele.lower())
+                else:
+                    alnum_only.append(ele)
+        
+        print(alnum_only)
+        reversed = alnum_only[::-1]
+        print(reversed)
+
+        if reversed == alnum_only:
+            return True
+        else: 
+            return False
+        
