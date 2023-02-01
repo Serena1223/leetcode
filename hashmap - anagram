@@ -14,17 +14,5 @@ def create_dict(s):
   return count
   
   
-  # again?
-  class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        hashset = set()
-        # check if it's in all nums
-        for num in nums:
-            if num in hashset:
-                return True
-            else:
-                hashset.add(num)
-
-        return False
 
         
