@@ -1,0 +1,38 @@
+// This program demonstrates a binary search
+// on a sorted array
+
+#include <assert.h>
+#include "cs136-trace.h"
+
+// find_sorted(item, a, len) finds the index of item in a,
+//   or returns -1 if it does not exist
+// requires: a is sorted in ascending order [not asserted]
+//           len > 0
+int find_sorted(int item, const int a[], int len) {
+  assert(a);
+  assert(len > 0);
+  int low = 0;
+  int high = len - 1;
+  
+  while (low <= high) {
+    int mid = (low + high) / 2;
+    if (a[mid] == item) {
+      return mid;
+    } else if (a[mid] < item) {
+      low = mid + 1;
+    } else {
+      high = mid - 1;
+    }
+  }
+  return -1;
+}
+
+int main(void) {
+  int a[10] = {1, 2, 3, 5, 7, 11, 13, 17, 19, 23};
+  
+  assert(find_sorted(1, a, 10) == 0);
+  assert(find_sorted(13, a, 10) == 6);
+  assert(find_sorted(23, a, 10) == 9);
+  assert(find_sorted(8, a, 10) == -1);
+  trace_msg("you got it");
+}
