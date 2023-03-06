@@ -1,0 +1,48 @@
+// insertion_sort(a, len) sorts the elements of a
+//   in increasing order
+// requires: len > 0
+// effects: modifies a
+void insertion_sort_normal(int a[], int len) {
+  assert(a);
+  assert(len > 0);
+  
+  for(int i = 1; i < len; ++i) {
+    for(int j = i; j - 1 >= 0; --j) {
+      if (a[j] < a[j - 1]) {
+        swap(&a[j], &a[j - 1]);
+      }
+    }
+  }
+}
+
+// insertion sort but with pointers (increasing)
+void insertion_sort_incr(int *a, int len) {
+  assert(a);
+  assert(len > 0);
+  
+  for(int *i = a; i < a + len; ++i) {
+    for(int *j = i; (j - a) - 1 >= 0; --j){
+      if (*j < *(j - 1)) {
+        int place_holder = *(j - 1);
+        *(j - 1) = *j;
+        *j = place_holder;
+      }
+    }
+  }
+}
+
+// insertion sort but with pointers (decreasing)
+void insertion_sort_decr(int *a, int len) {
+  assert(a);
+  assert(len > 0);
+  
+  for(int *i = a; i < a + len; ++i) {
+    for(int *j = i; (j - a) - 1 >= 0; --j){
+      if (*j > *(j - 1)) {
+        int place_holder = *(j - 1);
+        *(j - 1) = *j;
+        *j = place_holder;
+      }
+    }
+  }
+}
