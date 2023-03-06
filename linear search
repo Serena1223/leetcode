@@ -1,0 +1,30 @@
+// normal way and with C pointer
+// find(item, a, len) finds the index of item in a,
+//   or returns -1 if it does not exist
+// requires: len > 0
+int find(int item, const int a[], int len) {
+  assert(a);
+  assert(len > 0);
+  for(int i = 0; i < len; ++i) {
+    if (a[i] == item) {
+      return i;
+    }
+  }
+	return -1;
+}
+
+// linear search with pointer
+int find_pt(int item, int *a, int len) {
+  assert(a);
+  assert(len > 0);
+  int count = 0;
+  for(int *p = a; p < a + len; ++p) {
+    if (*p == item) {
+      printf("%d", count);
+      return count;
+    } 
+    count += 1;
+  }
+  printf("%d", -1);
+  return -1;
+}
